@@ -15,4 +15,7 @@ struct Graph {
 void initializeGraph(struct Graph* graph);
 void createEdge(int src, int dest, struct Graph* graph);
 int getVertexDegree(int vertex, struct Graph* graph);
-
+void insertName(char* name, int ctr, struct Graph* graph);
+int nameExists(char* name, struct Graph* graph);
+int getNameIndex(char* name, struct Graph* graph);
+void printVertexAndDegree(struct Graph* graph, FILE* output);

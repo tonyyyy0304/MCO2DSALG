@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
-#include "graph.h"
-#include "helperFuncs.c"
+#include "graph.c"
+
 
 
 int main(){
@@ -13,6 +13,7 @@ int main(){
  
     String100 fileName;
     String100 temp;
+    String100 vertexStart;
 
     int vertexCtr = 0;
     int curr = 0;
@@ -20,6 +21,9 @@ int main(){
 
     printf("Input filename: ");
     scanf("%s", fileName);
+
+    printf("Input start vertex for the traversal: ");
+    scanf("%s", vertexStart);
 
     fp_input = fopen(fileName, "r");
     fp_output = fopen("TRAVERSAL.txt", "w");
@@ -69,7 +73,7 @@ int main(){
         }
     }
 
-    printVertexAndDegree(&graph);
+    printVertexAndDegree(&graph, fp_output);
 
     fclose(fp_input);
     fclose(fp_output);
