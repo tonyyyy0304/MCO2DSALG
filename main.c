@@ -74,6 +74,7 @@ int main(){
     }
 
     printVertexAndDegree(&graph, fp_output);
+    bfs(&graph, &queue, vertexStart);
 
     fclose(fp_input);
     fclose(fp_output);
