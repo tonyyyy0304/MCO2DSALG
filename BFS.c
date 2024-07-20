@@ -77,7 +77,7 @@ void bfs(struct Graph *graph, struct Queue *queue, char* startingVertex){
         }
     }
 
-    for (i = 0; i < graph->maxVertex; i++){ // check vertices that are not yet visited
+    for (i = 0; i < graph->maxVertex; i++){ // reach unvisited nodes
         if (!visitedNodes[i]){
             initQueue(queue, graph);
             enqueue(queue, i); // enqueue this index
