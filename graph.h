@@ -1,3 +1,7 @@
+#ifndef GRAPH_H
+#define GRAPH_H
+
+
 #include<stdio.h>
 
 #define ROW 20
@@ -19,3 +23,5 @@ void insertName(char* name, int ctr, struct Graph* graph);
 int nameExists(char* name, struct Graph* graph);
 int getNameIndex(char* name, struct Graph* graph);
 void printVertexAndDegree(struct Graph* graph, FILE* output);
+
+#endif 

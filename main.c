@@ -23,7 +23,7 @@ int main(){
     scanf("%s", fileName);
 
     printf("Input start vertex for the traversal: ");
-    scanf("%s", vertexStart);
+    scanf(" %s", vertexStart);
 
     fp_input = fopen(fileName, "r");
     fp_output = fopen("TRAVERSAL.txt", "w");
@@ -74,7 +74,9 @@ int main(){
     }
 
     printVertexAndDegree(&graph, fp_output);
-    bfs(&graph, &queue, vertexStart);
+    bfs(&graph, &queue, vertexStart, fp_output);
+
+    getch();
 
     fclose(fp_input);
     fclose(fp_output);
