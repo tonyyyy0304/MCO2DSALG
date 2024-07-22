@@ -1,0 +1,9 @@
+graph X {
+    Barry -- Bruce;
+    Barry -- Diana;
+    Barry -- KalEl;
+    Bruce -- Diana;
+    Clark -- Diana;
+    Clark -- Hal;
+    Diana -- Hal;
+}

@@ -3,6 +3,7 @@
 #include "graph.c"
 #include "DFS.c"
 #include "BFS.c"
+#include "bonus.c"
 
 
 
@@ -23,25 +24,34 @@ int main(){
     int vertexCtr = 0;
     int curr = 0;
     int newVertex = 1;
+    int validFile = 1;
+    int validRoot = 1;
 
     printf("Input filename: ");
     scanf("%s", fileName);
 
-    printf("Input start vertex for the traversal: ");
-    scanf(" %s", vertexStart);
 
     fp_input = fopen(fileName, "r");
     fp_output = fopen("TRAVERSAL.txt", "w");
 
     if (fp_input == NULL){
-        printf("Error accessing file");
-        return 0;
+        validFile = 0;
     }
 
     if (fp_output == NULL){
         printf("Error accessing file");
+    }
+
+    if(validFile == 0){
+        printf("%s not found.", fileName);
         return 0;
     }
+
+    
+    printf("Input start vertex for the traversal: ");
+    scanf(" %s", vertexStart);
+
+   
 
     fscanf(fp_input, "%d", &graph.maxVertex);
 
@@ -61,41 +71,50 @@ int main(){
     }
     sort(&graph);
 
-    fseek(fp_input, 0, SEEK_SET);
+    validRoot = rootValidity(&graph, vertexStart);
+    
+    if(validRoot != -1 && validFile){
+        fseek(fp_input, 0, SEEK_SET);
 
-    fscanf(fp_input, "%d", &graph.maxVertex);
+        fscanf(fp_input, "%d", &graph.maxVertex);
 
-//scanning for the edges
-    while(fscanf(fp_input, "%s", temp) != EOF){
-         if(strcmp(temp, "-1") != 0 && newVertex){
-            newVertex = 0;
-            curr = getNameIndex(temp, &graph);
+        //scanning for the edges
+        while(fscanf(fp_input, "%s", temp) != EOF){
+            if(strcmp(temp, "-1") != 0 && newVertex){
+                newVertex = 0;
+                curr = getNameIndex(temp, &graph);
+            }
+
+            if(strcmp(temp, "-1") == 0){
+                newVertex = 1;
+            }
+
+            if(strcmp(temp, "-1") != 0 && getNameIndex(temp, &graph) != curr){
+                createEdge(curr, getNameIndex(temp, &graph), &graph);
+            }
+
+            if(strcmp(temp, "-1") != 0 && getNameIndex(temp, &graph) != curr){
+                createEdge(curr, getNameIndex(temp, &graph), &graph);
+            }
+
+            if(strcmp(temp, "-1") == 0){
+                curr++;
+            }
         }
 
-         if(strcmp(temp, "-1") == 0){
-            newVertex = 1;
-        }
+        printVertexAndDegree(&graph, fp_output);
+        bfs(&graph, &queue, vertexStart, fp_output);
+        printf(" \n");
+        fprintf(fp_output, "\n");
+        depthFirstSearch(&stack, &graph, vertexStart, fp_output);
+        createGraphDot("Test.dot", &graph);
+        createTreeDot("tree.dot", &graph, vertexStart);
 
-        if(strcmp(temp, "-1") != 0 && getNameIndex(temp, &graph) != curr){
-            createEdge(curr, getNameIndex(temp, &graph), &graph);
-        }
-
-        if(strcmp(temp, "-1") != 0 && getNameIndex(temp, &graph) != curr){
-            createEdge(curr, getNameIndex(temp, &graph), &graph);
-        }
-
-        if(strcmp(temp, "-1") == 0){
-            curr++;
-        }
+        getch();
     }
-
-    printVertexAndDegree(&graph, fp_output);
-    bfs(&graph, &queue, vertexStart, fp_output);
-    printf(" \n");
-    fprintf(fp_output, "\n");
-    depthFirstSearch(&stack, &graph, vertexStart, fp_output);
-
-    getch();
+    else if(validRoot == -1)
+        printf("Vertex %s not found.", vertexStart);
+   
 
     fclose(fp_input);
     fclose(fp_output);

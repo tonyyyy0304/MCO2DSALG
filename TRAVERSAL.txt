@@ -4,5 +4,5 @@ Clark    2
 Diana    4
 Hal    2
 KalEl    1
-Barry Bruce Diana KalEl Clark Hal 
-Barry Bruce Diana Clark Hal KalEl 
+Diana Barry Bruce Clark Hal KalEl 
+Diana Barry Bruce KalEl Clark Hal 

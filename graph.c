@@ -71,3 +71,12 @@ void sort(struct Graph* graph){
         }
     }
 }
+
+int rootValidity(struct Graph* graph, char* root){
+    int ret = 0;
+    for(int i = 0; i<graph->maxVertex; i++){
+        if(strcmp(graph->name[i], root) == 0)
+            ret = 1;
+    }
+    return ret;
+}
