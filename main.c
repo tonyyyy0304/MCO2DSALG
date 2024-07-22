@@ -1,12 +1,17 @@
 #include<stdio.h>
 #include<string.h>
 #include "graph.c"
+#include "DFS.c"
 #include "BFS.c"
+
+
+
 
 int main(){
 
     struct Graph graph;
     struct Queue queue;
+    struct Stack stack;
 
     FILE *fp_input;
     FILE *fp_output;
@@ -75,6 +80,7 @@ int main(){
 
     printVertexAndDegree(&graph, fp_output);
     bfs(&graph, &queue, vertexStart, fp_output);
+    depthFirstSearch(&stack, &graph, vertexStart, fp_output);
 
     getch();
 
