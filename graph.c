@@ -51,3 +51,23 @@ void printVertexAndDegree(struct Graph* graph, FILE* output){
         fprintf(output, "%s    %d\n", graph->name[i], getVertexDegree(i, graph));
     }
 }
+
+
+void sort(struct Graph* graph){
+    int i, j;
+    String100 temp;
+
+	//selection sort
+    for (i = 0; i < graph->maxVertex - 1; i++)
+    {
+        for (j = i + 1; j < graph->maxVertex; j++)
+        {
+            if (strcmp(graph->name[j], graph->name[i]) < 0)
+            {
+                strcpy(temp, graph->name[i]);
+                strcpy(graph->name[i], graph->name[j]);
+                strcpy(graph->name[j], temp);
+            }
+        }
+    }
+}

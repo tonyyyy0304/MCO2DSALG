@@ -1,6 +1,8 @@
-4
-BRUCE DIANA  -1
-CLARK DIANA HAL -1
-DIANA BRUCE CLARK HAL -1
-HAL CLARK DIANA -1
+6
+Diana Bruce Clark Hal Barry -1
+Bruce Diana Barry -1
+Hal Clark Diana -1
+Clark Diana Hal -1
+Barry Bruce Diana KalEl -1
+KalEl Barry -1
 

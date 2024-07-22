@@ -59,12 +59,23 @@ int main(){
             newVertex = 1;
         }
     }
+    sort(&graph);
+
     fseek(fp_input, 0, SEEK_SET);
 
     fscanf(fp_input, "%d", &graph.maxVertex);
 
 //scanning for the edges
     while(fscanf(fp_input, "%s", temp) != EOF){
+         if(strcmp(temp, "-1") != 0 && newVertex){
+            newVertex = 0;
+            curr = getNameIndex(temp, &graph);
+        }
+
+         if(strcmp(temp, "-1") == 0){
+            newVertex = 1;
+        }
+
         if(strcmp(temp, "-1") != 0 && getNameIndex(temp, &graph) != curr){
             createEdge(curr, getNameIndex(temp, &graph), &graph);
         }
@@ -80,6 +91,8 @@ int main(){
 
     printVertexAndDegree(&graph, fp_output);
     bfs(&graph, &queue, vertexStart, fp_output);
+    printf(" \n");
+    fprintf(fp_output, "\n");
     depthFirstSearch(&stack, &graph, vertexStart, fp_output);
 
     getch();
