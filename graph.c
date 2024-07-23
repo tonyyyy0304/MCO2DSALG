@@ -38,7 +38,7 @@ void insertName(char* name, int ctr, struct Graph* graph){
 
 int getNameIndex(char* name, struct Graph* graph){
      for(int i = 0; i < graph->maxVertex; i++){
-         if(strcmp(name, graph->name[i]) == 0)
+         if(strcasecmp(name, graph->name[i]) == 0)
             return i;
      }
 
@@ -52,30 +52,10 @@ void printVertexAndDegree(struct Graph* graph, FILE* output){
     }
 }
 
-
-void sort(struct Graph* graph){
-    int i, j;
-    String100 temp;
-
-	//selection sort
-    for (i = 0; i < graph->maxVertex - 1; i++)
-    {
-        for (j = i + 1; j < graph->maxVertex; j++)
-        {
-            if (strcmp(graph->name[j], graph->name[i]) < 0)
-            {
-                strcpy(temp, graph->name[i]);
-                strcpy(graph->name[i], graph->name[j]);
-                strcpy(graph->name[j], temp);
-            }
-        }
-    }
-}
-
 int rootValidity(struct Graph* graph, char* root){
-    int ret = 0;
+    int ret = -1;
     for(int i = 0; i<graph->maxVertex; i++){
-        if(strcmp(graph->name[i], root) == 0)
+        if(strcasecmp(graph->name[i], root) == 0)
             ret = 1;
     }
     return ret;

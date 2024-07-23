@@ -22,23 +22,14 @@ int main(){
     String100 temp;
     String100 vertexStart;
 
-    char renderer[200][120];
     int vertexCtr = 0;
     int curr = 0;
     int newVertex = 1;
     int validFile = 1;
     int validRoot = 1;
 
-     
-    for(int i = 0; i < 200; i++){
-        for(int j=0; j<120; j++){
-            renderer[i][j] = ' ';
-        }
-    }
-
     printf("Input filename: ");
     scanf("%s", fileName);
-
 
     fp_input = fopen(fileName, "r");
     fp_output = fopen("TRAVERSAL.txt", "w");
@@ -78,7 +69,6 @@ int main(){
             newVertex = 1;
         }
     }
-    sort(&graph);
 
     validRoot = rootValidity(&graph, vertexStart);
     

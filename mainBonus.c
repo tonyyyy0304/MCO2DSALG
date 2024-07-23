@@ -60,8 +60,6 @@ int main(){
     printf("Input start vertex for the traversal: ");
     scanf(" %s", vertexStart);
 
-   
-
     fscanf(fp_input, "%d", &graph.maxVertex);
 
     initializeGraph(&graph);
@@ -78,7 +76,6 @@ int main(){
             newVertex = 1;
         }
     }
-    sort(&graph);
 
     validRoot = rootValidity(&graph, vertexStart);
     
@@ -111,22 +108,27 @@ int main(){
             }
         }
         printVertexAndDegree(&graph, fp_output);
+        fprintf(fp_output, "\n");
         bfs(&graph, &queue, vertexStart, fp_output);
-        printf(" \n");
         fprintf(fp_output, "\n");
         depthFirstSearch(&stack, &graph, vertexStart, fp_output);
+
+         createGraph(&graph, renderer);
+        createTree(&graph, getNameIndex(vertexStart, &graph), renderer);  
+
+        system("cls");
+        for(int i = 0; i < 200; i++){
+            for(int j=0; j<120; j++){
+                printf("%c", renderer[i][j]);
+            }
+            printf("\n");
+        }
+        getch();
     }
     else if(validRoot == -1)
         printf("Vertex %s not found.", vertexStart);
 
-    system("cls");
-    for(int i = 0; i < 200; i++){
-        for(int j=0; j<120; j++){
-            printf("%c", renderer[i][j]);
-        }
-        printf("\n");
-    }
-    getch();
+   
 
     fclose(fp_input);
     fclose(fp_output);

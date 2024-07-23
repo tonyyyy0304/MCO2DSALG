@@ -42,7 +42,6 @@ void depthFirstSearch(struct Stack *stack, struct Graph *graph, char *startVerte
     while (!is_empty(stack)) {
         current = pop(stack);
         if (!visited[current]) {
-            printf("%s ", graph->name[current]);
             fprintf(fp, "%s ", graph->name[current]);
             visited[current] = 1;
             for (int i = graph->maxVertex - 1; i >= 0; i--) {

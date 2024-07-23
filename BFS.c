@@ -68,7 +68,6 @@ void bfs(struct Graph *graph, struct Queue *queue, char* startingVertex, FILE* f
     while (!isEmpty(queue)){
         int iAmHere = dequeue(queue);
 
-        printf("%s ", graph->name[iAmHere]);
         fprintf(fp, "%s ", graph->name[iAmHere]);
         for (i = 0; i < graph->maxVertex; i++){
             if (graph->matrix[iAmHere][i] == 1 && !visitedNodes[i]){ 
@@ -87,7 +86,7 @@ void bfs(struct Graph *graph, struct Queue *queue, char* startingVertex, FILE* f
             while (!isEmpty(queue)){
                 int iAmHere = dequeue(queue);
 
-                printf("%s ", graph->name[iAmHere]); // perform bfs
+                // perform bfs
                 fprintf(fp, "%s ", graph->name[iAmHere]);
 
                 for (j = 0; j < graph->maxVertex; j++){

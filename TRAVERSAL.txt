@@ -1,11 +1,12 @@
-Barry    1
-Baybayon    1
-Bruce    1
-Clark    1
-Diana    8
-Hal    1
-KalEl    1
-Robin    1
-Tony    1
-Diana Barry Baybayon Bruce Clark Hal KalEl Robin Tony 
-Diana Barry Baybayon Bruce Clark Hal KalEl Robin Tony 
+Fan    2
+Apple    1
+Banana    4
+Dog    3
+Anthony    1
+Egg    2
+Honey    1
+Indigo    2
+Cat    2
+
+Apple Banana Dog Indigo Cat Fan Egg Anthony Honey 
+Apple Banana Dog Fan Anthony Egg Honey Indigo Cat 

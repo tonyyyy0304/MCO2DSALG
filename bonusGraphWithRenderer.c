@@ -9,13 +9,6 @@
 #define PI 3.14159265358979323846
 #define RADIUS 20
 
-
-
-void moveCursorGraph(int x, int y) {
-    printf("\033[%d;%dH", y, x);//ANSI escape sequence, something i used in ccprog2
-}
-
-
 void printNamesInCircle(struct Graph* graph, struct Tracker* tracker, char renderer[][120]) {
     int x, y;
     double angle, angleBetween;
@@ -35,8 +28,7 @@ void printNamesInCircle(struct Graph* graph, struct Tracker* tracker, char rende
             renderer[tracker->y[i]-1][tracker->x[i] + j] = '=';
 
         }
-        
-        printf("|%s|", graph->name[i]);
+       
         renderer[tracker->y[i]][tracker->x[i]] = '|';
 
         for(int j=1; j<strlen(graph->name[i])+1; j++){
@@ -47,7 +39,6 @@ void printNamesInCircle(struct Graph* graph, struct Tracker* tracker, char rende
 
         for(int j = 0; j<strlen(graph->name[i]) + 2; j++){
             renderer[tracker->y[i]+1][tracker->x[i] + j] = '=';
-            printf("=");
         }
     }
 
