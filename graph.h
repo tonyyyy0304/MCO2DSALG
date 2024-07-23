@@ -25,4 +25,5 @@ int getNameIndex(char* name, struct Graph* graph);
 void printVertexAndDegree(struct Graph* graph, FILE* output);
 void sort(struct Graph* graph);
 
+
 #endif 

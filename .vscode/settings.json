@@ -6,6 +6,7 @@
         "*.tcc": "c",
         "cmath": "c",
         "cstdlib": "c",
-        "numeric": "c"
+        "numeric": "c",
+        "bonusgraphwithrenderer": "c"
     }
 }
