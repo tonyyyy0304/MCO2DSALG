@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "string.h": "c",
-        "graph.h": "c"
+        "graph.h": "c",
+        "graphics.h": "c",
+        "*.tcc": "c",
+        "cmath": "c",
+        "cstdlib": "c",
+        "numeric": "c"
     }
 }

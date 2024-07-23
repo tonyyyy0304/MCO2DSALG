@@ -3,7 +3,7 @@
 #include "graph.c"
 #include "DFS.c"
 #include "BFS.c"
-#include "bonus.c"
+#include "bonusGraph.c"
 
 
 
@@ -107,8 +107,9 @@ int main(){
         printf(" \n");
         fprintf(fp_output, "\n");
         depthFirstSearch(&stack, &graph, vertexStart, fp_output);
-        createGraphDot("Test.dot", &graph);
-        createTreeDot("tree.dot", &graph, vertexStart);
+
+        system("cls");
+        createGraph(&graph);
 
         getch();
     }

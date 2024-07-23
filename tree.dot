@@ -1,7 +1,0 @@
-graph Tree {
-    Diana -- Barry;
-    Diana -- Bruce;
-    Diana -- Clark;
-    Diana -- Hal;
-    Barry -- KalEl;
-}

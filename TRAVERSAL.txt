@@ -1,8 +1,0 @@
-Barry    3
-Bruce    2
-Clark    2
-Diana    4
-Hal    2
-KalEl    1
-Diana Barry Bruce Clark Hal KalEl 
-Diana Barry Bruce KalEl Clark Hal 
