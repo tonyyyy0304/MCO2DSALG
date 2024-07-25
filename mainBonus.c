@@ -108,12 +108,45 @@ int main(){
             }
         }
         printVertexAndDegree(&graph, fp_output);
+
+        sort(&graph);
+
+        fseek(fp_input, 0, SEEK_SET);
+
+        fscanf(fp_input, "%d", &graph.maxVertex);
+
+        initializeGraph(&graph);
+
+        //scanning for the edges
+        while(fscanf(fp_input, "%s", temp) != EOF){
+            if(strcmp(temp, "-1") != 0 && newVertex){
+                newVertex = 0;
+                curr = getNameIndex(temp, &graph);
+            }
+
+            if(strcmp(temp, "-1") == 0){
+                newVertex = 1;
+            }
+
+            if(strcmp(temp, "-1") != 0 && getNameIndex(temp, &graph) != curr){
+                createEdge(curr, getNameIndex(temp, &graph), &graph);
+            }
+
+            if(strcmp(temp, "-1") != 0 && getNameIndex(temp, &graph) != curr){
+                createEdge(curr, getNameIndex(temp, &graph), &graph);
+            }
+
+            if(strcmp(temp, "-1") == 0){
+                curr++;
+            }
+        }
+        
         fprintf(fp_output, "\n");
         bfs(&graph, &queue, vertexStart, fp_output);
         fprintf(fp_output, "\n");
         depthFirstSearch(&stack, &graph, vertexStart, fp_output);
 
-         createGraph(&graph, renderer);
+        createGraph(&graph, renderer);
         createTree(&graph, getNameIndex(vertexStart, &graph), renderer);  
 
         system("cls");
@@ -127,8 +160,6 @@ int main(){
     }
     else if(validRoot == -1)
         printf("Vertex %s not found.", vertexStart);
-
-   
 
     fclose(fp_input);
     fclose(fp_output);

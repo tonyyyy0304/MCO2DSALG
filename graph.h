@@ -23,6 +23,7 @@ void insertName(char* name, int ctr, struct Graph* graph);
 int nameExists(char* name, struct Graph* graph);
 int getNameIndex(char* name, struct Graph* graph);
 void printVertexAndDegree(struct Graph* graph, FILE* output);
+void sort(struct Graph* graph);
 
 
 #endif 

@@ -1,10 +1,7 @@
-9
-Fan Dog Anthony -1
-Apple Banana -1
-Banana Apple Cat Dog Indigo -1
-Dog Egg Fan Banana -1
-Anthony Fan -1
-Egg Dog Honey -1
-Honey Egg -1
-Indigo Cat Banana -1
-Cat Banana Indigo -1
+6
+Cog Capple -1
+Capple Cog Cat car -1
+car Case Cider -1
+Case car -1
+Cider car -1
+Cat Capple -1
