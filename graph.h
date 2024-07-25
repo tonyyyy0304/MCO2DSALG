@@ -7,7 +7,7 @@
 #define ROW 20
 #define COL 20
 
-typedef char String100[100];
+typedef char String100[101];
 
 struct Graph {
     String100 name[21];
