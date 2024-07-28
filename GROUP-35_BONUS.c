@@ -154,7 +154,7 @@ int main(){
         system("cls");
         for(int i = 0; i < 200; i++){
             for(int j=0; j<120; j++){
-                printf("%c", renderer[i][j]);
+                printf("%c", renderer[i][j]);//print each cell of renderer
             }
             printf("\n");
         }
