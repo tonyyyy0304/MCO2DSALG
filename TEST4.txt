@@ -1,9 +1,0 @@
-8
-Rhaenyra Daemon Viserys -1
-Daemon Rhaenyra Aegon Hightower -1
-Viserys Rhaenyra Alicent -1
-Aegon Daemon Helaena -1
-Hightower Daemon Criston -1
-Criston Hightower Alicent -1
-Alicent Viserys Criston -1
-Helaena Aegon -1

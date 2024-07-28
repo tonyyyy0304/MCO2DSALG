@@ -41,14 +41,10 @@ int main(){
 
 
     fp_input = fopen(fileName, "r");
-    fp_output = fopen("TRAVERSAL.txt", "w");
+   
 
     if (fp_input == NULL){
         validFile = 0;
-    }
-
-    if (fp_output == NULL){
-        printf("Error accessing file");
     }
 
     if(validFile == 0){
@@ -80,6 +76,11 @@ int main(){
     validRoot = rootValidity(&graph, vertexStart);
     
     if(validRoot != -1 && validFile){
+        fp_output = fopen("TRAVERSAL.txt", "w");
+        if (fp_output == NULL){
+            printf("Error accessing file");
+        }
+
         fseek(fp_input, 0, SEEK_SET);
 
         fscanf(fp_input, "%d", &graph.maxVertex);
@@ -157,11 +158,12 @@ int main(){
             }
             printf("\n");
         }
+        fclose(fp_output);
         getch();
     }
     else if(validRoot == -1)
         printf("Vertex %s not found.", vertexStart);
 
     fclose(fp_input);
-    fclose(fp_output);
+    
 }
