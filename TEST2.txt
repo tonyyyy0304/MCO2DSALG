@@ -1,0 +1,9 @@
+8
+Army Bol Charlie Davis -1
+Bol Army Elle Frank George -1
+Charlie Army Davis Harry -1
+Davis Army Charlie Elle -1
+Elle Bol Davis Frank -1
+Frank Bob Elle Harry -1
+George Bol -1
+Harry Charlie Frank -1

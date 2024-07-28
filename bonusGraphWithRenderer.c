@@ -22,7 +22,7 @@ void printNamesInCircle(struct Graph* graph, struct Tracker* tracker, char rende
         y = (int)(RADIUS * sin(angle)) + RADIUS;  
 
         //print on coordinate, x is multiplied by 2 since width and height are not same size when displayed in terminal
-        tracker->x[i]= x*1.8;
+        tracker->x[i]= x*2;
         tracker->y[i] = y+1;
         for(int j = 0; j<strlen(graph->name[i]) + 2 ; j++){
             renderer[tracker->y[i]-1][tracker->x[i] + j] = '=';
