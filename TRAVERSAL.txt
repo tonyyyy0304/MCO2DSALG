@@ -1,17 +1,9 @@
-num01    3
-num02    4
-num03    3
-num04    3
-num05    4
-num06    5
-num07    3
-num08    3
-num09    3
-num010    2
-num011    1
-num012    2
-num013    1
-num014    1
+Velasco    2
+Miguel    3
+Gokongwei    2
+Henry    2
+Andrew    3
 
-num01 num012 num02 num04 num011 num013 num03 num05 num08 num06 num07 num09 num010 num014 
-num01 num012 num011 num02 num013 num03 num06 num010 num09 num05 num04 num08 num07 num014 
+Gokongwei Henry Miguel Andrew Velasco 
+
+Gokongwei Henry Andrew Miguel Velasco 

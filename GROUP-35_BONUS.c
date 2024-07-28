@@ -144,6 +144,7 @@ int main(){
         fprintf(fp_output, "\n");
         bfs(&graph, &queue, vertexStart, fp_output);
         fprintf(fp_output, "\n");
+        fprintf(fp_output, "\n");
         depthFirstSearch(&stack, &graph, vertexStart, fp_output);
 
         createGraph(&graph, renderer);
