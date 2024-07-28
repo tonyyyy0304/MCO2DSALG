@@ -9,7 +9,7 @@ void initQueue(struct Queue *q, struct Graph *graph){
     q->tailIndex = -1;
 
     for (int i = 0; i < graph->maxVertex; i++){
-        q->Queue[i] = 0;
+        q->Queue[i] = -1;
     }
 }
 
@@ -53,7 +53,7 @@ int dequeue(struct Queue *q){
 
 void bfs(struct Graph *graph, struct Queue *queue, char* startingVertex, FILE* fp){
     int visitedNodes[100];
-    int i, j;
+    int i;
 
     for (i = 0; i < graph->maxVertex; i++){
         visitedNodes[i] = 0;
@@ -77,27 +77,6 @@ void bfs(struct Graph *graph, struct Queue *queue, char* startingVertex, FILE* f
         }
     }
 
-    for (i = 0; i < graph->maxVertex; i++){ // reach unvisited nodes
-        if (!visitedNodes[i]){
-            initQueue(queue, graph);
-            enqueue(queue, i); // enqueue this index
-            visitedNodes[i] = 1; // toggle as visited already
-
-            while (!isEmpty(queue)){
-                int iAmHere = dequeue(queue);
-
-                // perform bfs
-                fprintf(fp, "%s ", graph->name[iAmHere]);
-
-                for (j = 0; j < graph->maxVertex; j++){
-                    if (graph->matrix[iAmHere][j] == 1 && !visitedNodes[j]){
-                        enqueue(queue, j);
-                        visitedNodes[j] = 1;  
-                    }
-                }
-            }
-        }
-    }
     
     printf("\n");
 }
