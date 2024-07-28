@@ -13,7 +13,7 @@ void printNamesInCircle(struct Graph* graph, struct Tracker* tracker, char rende
     int x, y;
     double angle, angleBetween;
 
-    angleBetween = 2 * PI / graph->maxVertex;
+    angleBetween = 2 * PI / graph->maxVertex;//angle between vertices
     
     for (int i = 0; i < graph->maxVertex; i++) {
         //SOH CAH, radius is hypotenuse
@@ -29,6 +29,7 @@ void printNamesInCircle(struct Graph* graph, struct Tracker* tracker, char rende
 
         }
        
+        //saves the name inside the box ascii art in renderer
         renderer[tracker->y[i]][tracker->x[i]] = '|';
 
         for(int j=1; j<strlen(graph->name[i])+1; j++){
@@ -77,7 +78,7 @@ void drawLineGraph(int x1, int y1, int x2, int y2, char renderer[][120]) {
     
 
         for (xPoint = xStart; xPoint <= xEnd; xPoint++) { 
-            yPoint = round(m * xPoint + b); //as x progresses, we get the corresponding y using slope intercept
+            yPoint = round(m * xPoint + b); //as x progresses, we get the corresponding y using slope intercept formula
             renderer[yPoint][xPoint] = '-';  
         } 
     }
@@ -96,7 +97,7 @@ void createGraph(struct Graph* graph, char renderer[][120]){
             }
     }
 
-    printNamesInCircle(graph, &coordinate, renderer);
+    printNamesInCircle(graph, &coordinate, renderer);//to avoid lines overlapping the names, we call it again
 
 }
 
