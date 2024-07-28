@@ -4,6 +4,7 @@
 #include "graph.h"
 #include "BFS.h"
 
+//Initializes Queue
 void initQueue(struct Queue *q, struct Graph *graph){
     q->headIndex = -1;
     q->tailIndex = -1;
@@ -13,10 +14,12 @@ void initQueue(struct Queue *q, struct Graph *graph){
     }
 }
 
+//Check if Queue is empty
 int isEmpty(struct Queue *q){
     return q->headIndex == -1;
 }
 
+//Enqueues vertex
 void enqueue(struct Queue *q, int vertex){
     
     if (q->tailIndex == 99){
@@ -33,6 +36,7 @@ void enqueue(struct Queue *q, int vertex){
     
 }
 
+//Dequeues vertex
 int dequeue(struct Queue *q){
     int vertex; 
 
