@@ -22,12 +22,14 @@ int main(){
     String100 temp;
     String100 vertexStart;
 
+    //variables for checkers and necessary values/reference
     int vertexCtr = 0;
     int curr = 0;
     int newVertex = 1;
     int validFile = 1;
     int validRoot = 1;
 
+    // inputs
     printf("Input filename: ");
     scanf("%s", fileName);
 
@@ -42,22 +44,22 @@ int main(){
         printf("Error accessing file");
     }
 
+    //file checker
     if(validFile == 0){
         printf("%s not found.", fileName);
         return 0;
     }
 
-    
+    //traversal input
     printf("Input start vertex for the traversal: ");
     scanf(" %s", vertexStart);
 
-   
-
+    //scan the number
     fscanf(fp_input, "%d", &graph.maxVertex);
 
     initializeGraph(&graph);
 
-//scans for the vertex and assigns them an Index/ID in graph->name[]
+    //scans for the vertex and assigns them an index in graph->name[]
     while(fscanf(fp_input, "%s", temp) != EOF){
         if(strcmp(temp, "-1") != 0 && !nameExists(temp, &graph) && newVertex){
             insertName(temp, vertexCtr, &graph);
@@ -73,6 +75,7 @@ int main(){
     validRoot = rootValidity(&graph, vertexStart);
     
     if(validRoot != -1 && validFile){
+        //reset file read
         fseek(fp_input, 0, SEEK_SET);
 
         fscanf(fp_input, "%d", &graph.maxVertex);
@@ -101,16 +104,18 @@ int main(){
             }
         }
         printVertexAndDegree(&graph, fp_output);
-
+        //we first print before sorting, to follow the specs
         sort(&graph);
 
+        //we reset
         fseek(fp_input, 0, SEEK_SET);
 
         fscanf(fp_input, "%d", &graph.maxVertex);
 
         initializeGraph(&graph);
 
-        //scanning for the edges
+        /*scanning for the edges, we do it again after sorting since 
+            BFS and DFS relies on sorted names. e.g.alex < brian, when on choosing a path*/
         while(fscanf(fp_input, "%s", temp) != EOF){
             if(strcmp(temp, "-1") != 0 && newVertex){
                 newVertex = 0;

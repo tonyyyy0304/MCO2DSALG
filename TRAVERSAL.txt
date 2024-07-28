@@ -1,13 +1,17 @@
-num0    3
-num1    2
-num2    3
-num3    3
-num4    3
-num5    4
-num6    3
-num7    4
-num8    4
-num9    3
+num01    3
+num02    4
+num03    3
+num04    3
+num05    4
+num06    5
+num07    3
+num08    3
+num09    3
+num010    2
+num011    1
+num012    2
+num013    1
+num014    1
 
-num1 num2 num4 num3 num5 num8 num6 num7 num9 num0 
-num1 num2 num3 num6 num5 num4 num8 num0 num7 num9 
+num01 num012 num02 num04 num011 num013 num03 num05 num08 num06 num07 num09 num010 num014 
+num01 num012 num011 num02 num013 num03 num06 num010 num09 num05 num04 num08 num07 num014 
