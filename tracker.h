@@ -2,8 +2,8 @@
 #define TRACKER_H
 
 struct Tracker{
-    int x[100];
-    int y[100];
+    int x[101];
+    int y[101];
 };
 
 #endif
